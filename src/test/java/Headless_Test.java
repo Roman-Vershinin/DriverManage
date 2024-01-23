@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
-public class Headless {
+public class Headless_Test {
    private WebDriver driver;
 
     @BeforeAll

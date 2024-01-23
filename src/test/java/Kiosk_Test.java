@@ -6,10 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
-import java.time.Duration;
-
-public class Kiosk {
+public class Kiosk_Test {
     private WebDriver driver;
 
     @BeforeAll

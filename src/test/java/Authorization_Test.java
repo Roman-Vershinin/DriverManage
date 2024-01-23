@@ -12,10 +12,10 @@ import tools.WaitTools;
 
 
 
-public class Authorization {
+public class Authorization_Test {
     private static WebDriver driver;
     private WaitTools waitTools;
-     private final Logger logger = LogManager.getLogger(Authorization.class);
+     private final Logger logger = LogManager.getLogger(Authorization_Test.class);
      private String login = System.getProperty("login");
      private String password = System.getProperty("password");
 
@@ -44,6 +44,7 @@ public class Authorization {
         String clickPassLocator = "//div[./input[@type='password']]";
         String inputEmailLocator = "//input[@name='email']";
         String inputPassLocator = "//input[@type='password']";
+        waitTools.waitForCondition(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text()=\"Войти\"]")));
         WebElement buttonEnter = driver.findElement(By.xpath("//button[text()=\"Войти\"]"));
         buttonEnter.click();
         driver.findElement(By.xpath(clickLoginLocator)).click();
@@ -51,8 +52,8 @@ public class Authorization {
         driver.findElement(By.xpath(clickPassLocator)).click();
         driver.findElement(By.xpath(inputPassLocator)).sendKeys(password);
         driver.findElement(By.cssSelector("#__PORTAL__ button")).click();
-        Assertions.assertTrue(waitTools.waitForCondition(ExpectedConditions.not(ExpectedConditions.
-                presenceOfAllElementsLocatedBy(By.xpath(String.valueOf(buttonEnter))))));
+        Assertions.assertTrue(waitTools.waitForCondition(ExpectedConditions.
+                invisibilityOf(buttonEnter)));
         logger.info("log in");
         logger.info(driver.manage().getCookies());
     }
